@@ -16,14 +16,33 @@ public class BoxingMatch {
         player2.DisplayFighter();
     }
 
-    public String Fight()
+    public void Fight()
     {
+        System.out.println("Current health: " + player1.health + " for " + player1.name + ".");
+        System.out.println("Current health: " + player2.health + " for " + player2.name + ".");
+
         do {
-            System.out.println();
             player2.health -= player1.Attack();
 
-            System.out.println();
             player1.health -= player2.Attack();
+
+            System.out.println();
+
+            if(player1.health <= 0)
+            {
+                player1.health = 0;
+                break;
+            }
+            if(player2.health <= 0)
+            {
+                player2.health = 0;
+                break;
+            }
+
+            System.out.println();
+
+            System.out.println("Current health: " + player1.health + " for " + player1.name + ".");
+            System.out.println("Current health: " + player2.health + " for " + player2.name + ".");
 
             System.out.println();
         }
@@ -31,11 +50,11 @@ public class BoxingMatch {
 
         if(player1.health == 0)
         {
-            return player2.Winner();
+            player2.Winner();
         }
-        else
+        if(player2.health == 0)
         {
-            return player1.Winner();
+            player1.Winner();
         }
     }
 

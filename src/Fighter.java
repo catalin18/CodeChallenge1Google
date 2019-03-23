@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Fighter {
-    private String name;
+    public String name;
     private double height;
     private int weight;
     public int health;
@@ -12,12 +12,11 @@ public class Fighter {
         Random random = new Random();
 
         do {
-            damagePerAttack = random.nextInt(15);
+            damagePerAttack = random.nextInt(30);
         } while(damagePerAttack == 0);
 
         System.out.println(name + " attacked with " + damagePerAttack);
-        System.out.println("Current health: " + health + " for " + name + ".");
-        System.out.println();
+
         return damagePerAttack;
     }
 
@@ -50,9 +49,8 @@ public class Fighter {
         System.out.println();
     }
 
-    public String Winner()
+    public void Winner()
     {
         System.out.println("The winner is " + name);
-        return name;
     }
 }
